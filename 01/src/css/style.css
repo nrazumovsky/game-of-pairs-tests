@@ -1,0 +1,189 @@
+/* normalize  */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+body {
+  min-width: 320px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* var */
+:root {
+  --ui-white: #ffffff;
+  --ui-black: #272727;
+  --ui-dark-gray: #cccccc;
+  --ui-light-gray: #eaeaea;
+  --ui-blue: #464ce5;
+  --ui-danger: #e54646;
+  --ui-danger-30: #fdeded;
+  --ui-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* classes */
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  max-width: 570px;
+  margin: 0 auto;
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 16px;
+  box-shadow: var(--ui-shadow);
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 32px;
+  font-size: 36px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.card-input {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.card-input:last-child {
+  margin-bottom: 0;
+}
+
+.input {
+  min-width: 320px;
+  min-height: 46px;
+  padding-left: 12px;
+  margin-bottom: 8px;
+  border: 1px solid var(--ui-light-gray);
+  border-radius: 8px;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.input:hover {
+  border-color: var(--ui-dark-gray);
+}
+
+.input:focus-visible {
+  border-color: var(--ui-blue);
+}
+
+.input.error-field {
+  border: solid 1px var(--ui-danger);
+  background-color: var(--ui-danger-30);
+  background-position: right 15px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+}
+
+.input.error-field {
+  background-image: url('/assets/images/error.svg');
+}
+
+.card-logo {
+  position: absolute;
+  top: 32px;
+  left: -46px;
+  width: 32px;
+  height: 32px;
+  background-repeat: no-repeat;
+  background-size: 32px;
+  background-position: center;
+}
+
+.card-logo--mir {
+  background-image: url('../assets/images/mir.svg');
+}
+
+.card-logo--visa {
+  background-image: url('../assets/images/visa.svg');
+}
+
+.card-logo--mastercard {
+  background-image: url('../assets/images/mastercard.svg');
+}
+
+.alert-message {
+  position: absolute;
+  margin: 0;
+  color: var(--ui-danger);
+  font-size: 14px;
+}
+
+.input:focus-visible {
+  outline: none;
+}
+
+.btn {
+  width: 100%;
+  margin: 0 auto;
+  padding: 14px 48px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  color: var(--ui-white);
+  background-color: var(--ui-black);
+  cursor: pointer;
+  transition:
+    color 0.25s ease-in-out,
+    background-color 0.25s ease-in-out;
+}
+
+.btn:hover {
+  background-color: var(--ui-blue);
+  transition:
+    color 0.25s ease-in-out,
+    background-color 0.25s ease-in-out;
+}
+
+.btn:disabled {
+  color: var(--ui-dark-gray);
+  background-color: var(--ui-white);
+  border: 2px solid var(--ui-dark-gray);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.input--danger {
+  border: 4px solid var(--ui-danger);
+}
+
+.text--danger {
+  color: var(--ui-danger);
+}

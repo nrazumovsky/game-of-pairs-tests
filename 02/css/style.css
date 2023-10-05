@@ -1,0 +1,339 @@
+/* normalize  */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+body {
+  min-width: 320px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* fonts */
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url('HelveticaNeueCyr-Bold.eot');
+  src:
+    local('HelveticaNeueCyr-Bold'),
+    url('HelveticaNeueCyr-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url('HelveticaNeueCyr-Medium.eot');
+  src:
+    local('HelveticaNeueCyr-Medium'),
+    url('HelveticaNeueCyr-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url('HelveticaNeueCyr-Roman.eot');
+  src:
+    local('HelveticaNeueCyr-Roman'),
+    url('HelveticaNeueCyr-Roman.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* var */
+
+:root {
+  --ui-black: #000;
+  --ui-white: #fefefe;
+  --ui-dark-gray: #222222;
+  --ui-gray: #999999;
+  --ui-light-gray: #b7b7b7;
+  --ui-x-light-gray: #e5e5e5;
+  --ui-pink: #e54646;
+  --ui-x-light-pink: #ea6868;
+  --ui-green: #5ccb88;
+}
+
+/* base-classes */
+
+.container {
+  max-width: 1024px;
+  height: 100vh;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.section-offset {
+  padding-bottom: 60px;
+}
+
+/* classes */
+
+.theme {
+  background-color: var(--ui-black);
+}
+
+.title {
+  justify-content: center;
+  margin-top: 56px;
+  margin-bottom: 100px;
+}
+
+.title-h2 {
+  margin: 0;
+  font-size: 82px;
+  font-weight: 700;
+  color: var(--ui-white);
+  z-index: 20;
+}
+
+.popup {
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--ui-black);
+  font-size: 0;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.25s ease-in-out,
+    visibility 0.25s ease-in-out;
+}
+
+.popup__wrapper {
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 80px;
+  border-radius: 24px;
+  background-color: var(--ui-white);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.25s ease-in-out,
+    visibility 0.25s ease-in-out;
+}
+
+.popup--active {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.25s ease-in-out,
+    visibility 0.25s ease-in-out;
+}
+
+.form-title {
+  margin-bottom: 40px;
+  font-size: 24px;
+  color: var(--ui-black);
+}
+
+.form {
+  flex-direction: column;
+  align-items: center;
+}
+
+.input {
+  height: 60px;
+  min-width: 270px;
+  padding: 14px 24px;
+  margin-bottom: 25px;
+  border: solid 1px var(--ui-x-light-gray);
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: center;
+  color: var(--ui-light-gray);
+  transition: border-color 0.2s ease-in-out;
+}
+
+.input:focus-visible {
+  outline: none;
+  border-color: var(--ui-gray);
+  transition: border-color 0.2s ease-in-out;
+}
+
+.input:hover {
+  border-color: var(--ui-gray);
+  transition: border-color 0.2s ease-in-out;
+}
+
+.timer {
+  justify-content: center;
+  margin-bottom: 64px;
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--ui-white);
+}
+
+.timer--danger {
+  color: var(--ui-pink);
+  transition: color 0.25s ease-in-out;
+}
+
+.timer--success {
+  color: var(--ui-green);
+  transition: color 0.25s ease-in-out;
+}
+
+.cardslist {
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 40px;
+  list-style-type: none;
+  font-size: 0;
+}
+
+.game {
+  justify-content: center;
+  align-items: center;
+  top: 280px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+  height: 120px;
+  margin-right: 24px;
+  margin-bottom: 24px;
+  border: solid 4px transparent;
+  border-radius: 32px;
+  font-size: 52px;
+  font-weight: 700;
+  color: transparent;
+  background-color: var(--ui-white);
+  transform: scale(1);
+  transition:
+    transform 0.2s ease-in-out,
+    color 0.4s ease-in-out,
+    background-color 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.card:nth-child(4n) {
+  margin-right: 0;
+}
+
+.card:nth-last-child(-n + 4) {
+  margin-bottom: 0;
+}
+
+.card:last-child {
+  margin-right: 0;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card.open {
+  color: var(--ui-dark-gray);
+  transition:
+    color 0.4s ease-in-out,
+    background-color 0.4s ease-in-out;
+}
+
+.card.fail {
+  color: var(--ui-pink);
+  transition:
+    color 0.4s ease-in-out,
+    background-color 0.4s ease-in-out;
+}
+
+.card.success {
+  color: var(--ui-green);
+  transition:
+    color 0.4s ease-in-out,
+    background-color 0.4s ease-in-out;
+}
+
+.btn {
+  margin: 0 auto;
+  padding: 20px 48px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ui-white);
+  background-color: var(--ui-dark-gray);
+  cursor: pointer;
+  transition:
+    color 0.25s ease-in-out,
+    background-color 0.25s ease-in-out;
+}
+
+.btn:focus-visible {
+  color: var(--ui-black);
+  background-color: var(--ui-dark-pink);
+  transition:
+    color 0.25s ease-in-out,
+    background-color 0.25s ease-in-out;
+}
+
+.btn:hover {
+  color: var(--ui-white);
+  background-color: var(--ui-pink);
+  transition:
+    color 0.25s ease-in-out,
+    background-color 0.25s ease-in-out;
+}
+
+.btn:active {
+  color: var(--ui-white);
+  background-color: var(--ui-x-light-pink);
+  transition:
+    color 0.25s ease-in-out,
+    background-color 0.25s ease-in-out;
+}
+
+.btn:disabled {
+  color: var(--ui-black);
+  background-color: var(--ui-x-light-gray);
+  transition:
+    color 0.25s ease-in-out,
+    background-color 0.25s ease-in-out;
+}
